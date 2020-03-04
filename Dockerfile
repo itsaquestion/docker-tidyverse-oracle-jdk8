@@ -68,6 +68,8 @@ WORKDIR /root
 
 RUN sudo apt-get install libbz2-dev libpcre3-dev liblzma-dev zlib1g-dev libomp-dev -y
 
+RUN sudo apt-get fonts-noto-cjk -y
+
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
 RUN R -e 'install.packages("rJava")'
