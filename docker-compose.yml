@@ -1,7 +1,7 @@
 version: "2"
 
 services:
-  netlogo:
+  rstudio:
     build: ./
     image: imtass/tidyverse-oracle-jdk8:latest
     volumes:
