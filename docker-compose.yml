@@ -1,0 +1,13 @@
+version: "2"
+
+services:
+  netlogo:
+    build: ./
+    image: imtass/tidyverse-oracle-jdk8:latest
+    volumes:
+      - "./HOME:/home/rstudio"
+    environment:
+      PASSWORD: ${RSTUDIO_PWD}
+    ports:
+      - 127.0.0.1:9797:8787
+    restart: always

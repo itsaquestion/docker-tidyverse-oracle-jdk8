@@ -1,5 +1,5 @@
 # Base image, see https://hub.docker.com/r/rocker/rstudio
-FROM rocker/tidyverse:3.5.3
+FROM rocker/tidyverse:3.6.2
 
 # Install Oracle JDK 1.8.0_212 =================
 
@@ -65,10 +65,14 @@ WORKDIR /root
 # Install rJava =====================
 # https://stackoverflow.com/questions/40109139/error-installing-rjava-makefile-all38-recipe-for-target-libjri-so-failed
 # https://github.com/s-u/rJava/issues/161#issuecomment-428269293
+RUN sudo apt-get update
 
 RUN sudo apt-get install libbz2-dev libpcre3-dev liblzma-dev zlib1g-dev libomp-dev -y
 
 RUN sudo apt-get install fonts-noto-cjk -y
+
+# for proj4 and ggalt ================
+RUN sudo apt-get install libproj-dev libgdal-dev -y
 
 RUN apt-get clean && rm -rf /var/lib/apt/lists/* /tmp/* /var/tmp/*
 
